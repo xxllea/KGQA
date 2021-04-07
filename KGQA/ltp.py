@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-import pyltp 
+import pyltp
 import os
-LTP_DATA_DIR = 'E:/KGQA_HLM/3.4.0/ltp_data_v3.4.0/ltp_data_v3.4.0'  # ltp模型目录的路径
+# LTP_DATA_DIR = 'E:/KGQA_HLM/3.4.0/ltp_data_v3.4.0/ltp_data_v3.4.0'  # ltp模型目录的路径
+LTP_DATA_DIR = 'C:/Users/xxllea/Desktop/GitHub/ltp_data_v3.4.0'
 # 这里注意，模型的路径里是'/'不是'\'
 
 def cut_words(words):

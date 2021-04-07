@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>基于知识图谱的书籍推荐可视化及问答系统</title>
+    <title>基于开源软件的知识图谱系统</title>
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="../static/images/logo.jpg">
@@ -292,7 +292,7 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-top-links pull-left">
-                        <h4>基于知识图谱的书籍推荐可视化及问答系统</h4>
+                        <h4>基于开源软件的知识图谱系统</h4>
                     </ul>
                 </div>
                 <!--================================-->
@@ -428,7 +428,7 @@
 
     <script type="text/javascript">
         $(document).keypress(function (e) {
-            // 回车键事件  
+            // 回车键事件
             if (e.which == 13) {
                 search();
             }
@@ -438,7 +438,9 @@
             myChart.resize();
         }
 
-        $.ajaxSetup({ async: false });
+        $.ajaxSetup({
+            async: false
+        });
         var myChart = echarts.init(document.getElementById("guanxi"));
         myChart.showLoading();
 
@@ -469,8 +471,7 @@
             },
             animationDurationUpdate: 1500,
             animationEasingUpdate: 'quinticInOut',
-            legend: [
-                {
+            legend: [{
                     orient: 'horizontal',
                     show: true,
                     top: '90%',
@@ -492,7 +493,9 @@
                         '散文': false,
                         '其他': false
                     },
-                    data: ['小说', '编程', 'web', '算法', '神经网络', '科技', '名著', '推理', '悬疑', '青春', '言情', '校园', '经济', '漫画', '散文', '其他']
+                    data: ['小说', '编程', 'web', '算法', '神经网络', '科技', '名著', '推理', '悬疑', '青春', '言情', '校园', '经济',
+                        '漫画', '散文', '其他'
+                    ]
                 },
                 {
                     orient: 'horizontal',
@@ -500,103 +503,100 @@
                     data: ['作者', '分类', '出版年份']
                 }
             ],
-            series: [
-                {
-                    type: 'graph',
-                    layout: 'force',
-                    symbolSize: 50,
-                    roam: true,
-                    edgeSymbol: ['circle', 'arrow'],
-                    edgeSymbolSize: [4, 4],
-                    edgeLabel: {
-                        normal: {
-                            show: true,
-                            textStyle: {
-                                fontSize: 10,
-                                color: "#000000"
-                            },
-                            formatter: "{c}"
-                        }
-                    },
-                    force: {
-                        repulsion: 2500,
-                        edgeLength: [10, 100]
-                    },
-                    focusNodeAdjacency: true,
-                    draggable: true,
-                    roam: true,
-                    categories: [{
-                        name: '作者',
-                    }, {
-                        name: '分类',
-                    }, {
-                        name: '出版年份',
-                    }, {
-                        name: '小说',
-                    }, {
-                        name: '编程',
-                    }, {
-                        name: 'web',
-                    }, {
-                        name: '算法',
-                    }, {
-                        name: '神经网络',
-                    }, {
-                        name: '科技',
-                    }, {
-                        name: '名著',
-                    }, {
-                        name: '推理',
-                    }, {
-                        name: '悬疑',
-                    }, {
-                        name: '青春',
-                    }, {
-                        name: '言情',
-                    }, {
-                        name: '校园',
-                    }, {
-                        name: '经济',
-                    }, {
-                        name: '漫画',
-                    }, {
-                        name: '散文',
-                    }, {
-                        name: '其他',
-                    }
-                    ],
-                    label: {
-                        normal: {
-                            show: true,
-                            textStyle: {
-                                fontSize: 10
-                            },
-                        }
-                    },
-                    force: {
-                        repulsion: 1000
-                    },
-                    tooltip: {
-                        formatter: function (node) { // 区分连线和节点，节点上额外显示其他数字
-                            if (!node.value) {
-                                return node.data.name;
-                            } else {
-                                return node.data.name + ":" + node.data.showNum;
-                            }
+            series: [{
+                type: 'graph',
+                layout: 'force',
+                symbolSize: 50,
+                roam: true,
+                edgeSymbol: ['circle', 'arrow'],
+                edgeSymbolSize: [4, 4],
+                edgeLabel: {
+                    normal: {
+                        show: true,
+                        textStyle: {
+                            fontSize: 10,
+                            color: "#000000"
                         },
-                    },
-                    lineStyle: {
-                        normal: {
-                            opacity: 0.9,
-                            width: 1,
-                            curveness: 0.3
+                        formatter: "{c}"
+                    }
+                },
+                force: {
+                    repulsion: 2500,
+                    edgeLength: [10, 100]
+                },
+                focusNodeAdjacency: true,
+                draggable: true,
+                roam: true,
+                categories: [{
+                    name: '作者',
+                }, {
+                    name: '分类',
+                }, {
+                    name: '出版年份',
+                }, {
+                    name: '小说',
+                }, {
+                    name: '编程',
+                }, {
+                    name: 'web',
+                }, {
+                    name: '算法',
+                }, {
+                    name: '神经网络',
+                }, {
+                    name: '科技',
+                }, {
+                    name: '名著',
+                }, {
+                    name: '推理',
+                }, {
+                    name: '悬疑',
+                }, {
+                    name: '青春',
+                }, {
+                    name: '言情',
+                }, {
+                    name: '校园',
+                }, {
+                    name: '经济',
+                }, {
+                    name: '漫画',
+                }, {
+                    name: '散文',
+                }, {
+                    name: '其他',
+                }],
+                label: {
+                    normal: {
+                        show: true,
+                        textStyle: {
+                            fontSize: 10
+                        },
+                    }
+                },
+                force: {
+                    repulsion: 1000
+                },
+                tooltip: {
+                    formatter: function (node) { // 区分连线和节点，节点上额外显示其他数字
+                        if (!node.value) {
+                            return node.data.name;
+                        } else {
+                            return node.data.name + ":" + node.data.showNum;
                         }
                     },
-                    // progressiveThreshold: 700,
-                    nodes: [],
-                    links: [],
-                }
-            ]
+                },
+                lineStyle: {
+                    normal: {
+                        opacity: 0.9,
+                        width: 1,
+                        curveness: 0.3
+                    }
+                },
+                // progressiveThreshold: 700,
+                nodes: [],
+                links: [],
+            }]
         };
 
         myChart.on('click', function (params) {
@@ -608,7 +608,8 @@
                 $("#list").empty();
                 var listHtml = '';
                 // 循环取json中的数据,并呈现在列表中
-                listHtml += '<table class="layui-table"><colgroup><col width="150"><col width="200"><col></colgroup>';
+                listHtml +=
+                    '<table class="layui-table"><colgroup><col width="150"><col width="200"><col></colgroup>';
                 listHtml += '<thead><tr><td>类型</td> <td>名称</td></tr></thead>';
                 listHtml += '<tbody>'
                 CA_LIST = {
@@ -659,7 +660,8 @@
                 $("#list").empty();
                 var listHtml = '';
                 // 循环取json中的数据,并呈现在列表中
-                listHtml += '<table class="layui-table"><colgroup><col width="150"><col width="200"><col></colgroup>';
+                listHtml +=
+                    '<table class="layui-table"><colgroup><col width="150"><col width="200"><col></colgroup>';
                 listHtml += '<thead><tr><td>类型</td> <td>名称</td></tr></thead>';
                 listHtml += '<tbody>'
                 CA_LIST = {
@@ -711,7 +713,8 @@
                 $("#list").empty();
                 var listHtml = '';
                 // 循环取json中的数据,并呈现在列表中
-                listHtml += '<table class="layui-table"><colgroup><col width="150"><col width="200"><col></colgroup>';
+                listHtml +=
+                    '<table class="layui-table"><colgroup><col width="150"><col width="200"><col></colgroup>';
                 listHtml += '<thead><tr><td>类型</td> <td>名称</td></tr></thead>';
                 listHtml += '<tbody>'
                 CA_LIST = {
@@ -764,7 +767,8 @@
                 $("#list").empty();
                 var listHtml = '';
                 // 循环取json中的数据,并呈现在列表中
-                listHtml += '<table class="layui-table"><colgroup><col width="150"><col width="200"><col></colgroup>';
+                listHtml +=
+                    '<table class="layui-table"><colgroup><col width="150"><col width="200"><col></colgroup>';
                 listHtml += '<thead><tr><td>类型</td> <td>名称</td></tr></thead>';
                 listHtml += '<tbody>'
                 CA_LIST = {
